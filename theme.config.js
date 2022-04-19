@@ -1,13 +1,15 @@
 export default {
-  github: 'https://github.com/shuding/nextra',
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master',
-  titleSuffix: ' – Nextra',
+  github: 'https://github.com/dhaiwat10/web3cheatsheet',
+  docsRepositoryBase: 'https://github.com/dhaiwat10/web3cheatsheet/blob/master',
+  titleSuffix: ' – web3 cheatsheet',
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">Nextra</span>
-      <span className="text-gray-600 font-normal hidden md:inline">
-        The Next.js Static Site Generator
+      <span className="mr-2 font-extrabold hidden md:inline">
+        web3 cheatsheet
       </span>
+      {/* <span className="text-gray-600 font-normal hidden md:inline">
+        The Next.js Static Site Generator
+      </span> */}
     </>
   ),
   head: (
@@ -62,6 +64,6 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
-  footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
+  footerText: <>MIT {new Date().getFullYear()} © Dhaiwat Pandya</>,
   unstable_faviconGlyph: '👋',
 }
