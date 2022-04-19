@@ -1,0 +1,124 @@
+# Wallet connections
+
+[create-web3-frontend](https://github.com/dhaiwat10/create-web3-frontend) already does this for you.
+
+1. First, setup the `wagmi` Provider at the root of your app.
+
+If you're using Next.js, this would be done in `pages/_app.tsx`. If you're using create-react-app, this would be done in `src/index.tsx`.
+
+```tsx
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
+import { Connector, Provider, chain, defaultChains } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+import { WalletLinkConnector } from 'wagmi/connectors/walletLink'
+import { providers } from 'ethers'
+
+// Get environment variables
+const infuraId = process.env.NEXT_PUBLIC_INFURA_ID as string
+
+// Pick chains
+const chains = defaultChains
+const defaultChain = chain.mainnet
+
+// Set up connectors
+type ConnectorsConfig = { chainId?: number }
+const connectors = ({ chainId }: ConnectorsConfig) => {
+  const rpcUrl =
+    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
+    defaultChain.rpcUrls[0]
+  return [
+    new InjectedConnector({ chains }),
+    new WalletConnectConnector({
+      chains,
+      options: {
+        infuraId,
+        qrcode: true,
+      },
+    }),
+    new WalletLinkConnector({
+      chains,
+      options: {
+        appName: 'create-web3-frontend',
+        jsonRpcUrl: `${rpcUrl}/${infuraId}`,
+      },
+    }),
+  ]
+}
+
+// Set up providers
+type ProviderConfig = { chainId?: number; connector?: Connector }
+const isChainSupported = (chainId?: number) =>
+  chains.some((x) => x.id === chainId)
+
+const provider = ({ chainId }: ProviderConfig) =>
+  providers.getDefaultProvider(
+    isChainSupported(chainId) ? chainId : defaultChain.id,
+    {
+      infuraId,
+    }
+  )
+const webSocketProvider = ({ chainId }: ProviderConfig) =>
+  isChainSupported(chainId)
+    ? new providers.InfuraWebSocketProvider(chainId, infuraId)
+    : undefined
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Provider
+      autoConnect
+      connectors={connectors}
+      provider={provider}
+      webSocketProvider={webSocketProvider}
+    >
+      <Component {...pageProps} />
+    </Provider>
+  )
+}
+
+export default MyApp
+```
+
+2. Now, setup the wallet connection screen wherever you wish.
+
+```tsx
+import type { NextPage } from 'next'
+import { FC } from 'react'
+import { useConnect, useAccount } from 'wagmi'
+
+const Home: NextPage = () => {
+  const [{ data: connectData, error: connectError }, connect] = useConnect()
+  const { connected } = connectData
+  const [{ data: accountData }, disconnect] = useAccount()
+
+  if (connected) {
+    return (
+      <div>
+        <p>Welcome {accountData?.address}</p>
+        <button onClick={disconnect}>Disconnect</button>
+        <InfoSection />
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <p>Connect your wallet:</p>
+      <div>
+        {/* connectData.connectors contains the list of available 'connectors' like Metamask, WalletConnect, etc */}
+        {connectData.connectors.map((x) => (
+          <button key={x.id} onClick={() => connect(x)}>
+            {x.name}
+            {!x.ready && ' (unsupported)'}
+          </button>
+        ))}
+      </div>
+
+      {connectError && <p>{connectError?.message ?? 'Failed to connect'}</p>}
+    </div>
+  )
+}
+
+export default Home
+```

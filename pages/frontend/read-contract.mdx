@@ -1,0 +1,65 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Reading from a smart contract
+
+<Callout>
+  Learn about ABIs first:
+  https://www.quicknode.com/guides/solidity/what-is-an-abi
+</Callout>
+
+We make use of the `useContractRead` hook from `wagmi` to read from a smart contract.
+
+```tsx
+import { useContractRead } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }, read] = useContractRead(
+    {
+      addressOrName: 'your_contracts_address',
+      abi: your_contracts_abi,
+    },
+    'the_contract_method_name'
+  )
+}
+```
+
+For example, if you want to read the `greeting` from a `Greeter` contract:
+
+```tsx
+import { useContractRead } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }, read] = useContractRead(
+    {
+      addressOrName: 'greeter_address',
+      abi: Greeter_ABI,
+    },
+    'greeting'
+  )
+
+  return <p>Greeting: {data}</p>
+}
+```
+
+If you don't want to programtically read instead of reading on render, you can use the `read` function directly:
+
+```tsx
+import { useContractRead } from 'wagmi'
+
+const Page = () => {
+  const [_, read] = useContractRead(
+    {
+      addressOrName: 'greeter_address',
+      abi: Greeter_ABI,
+    },
+    'greeting'
+  )
+
+  const handleClick = async () => {
+    const { data } = read()
+    console.log(`Greeting: ${data}`)
+  }
+
+  return <button onClick={handleClick}>Read greeting</button>
+}
+```
