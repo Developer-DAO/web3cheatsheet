@@ -1,0 +1,34 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Interacting with a contract
+
+<Callout>
+  Learn about ABIs first:
+  https://www.quicknode.com/guides/solidity/what-is-an-abi
+</Callout>
+
+The most straight-forward way to interact with a smart contract is to use the `useContract` hook from `wagmi`.
+
+```tsx
+import { useContract } from 'wagmi'
+
+const Page = () => {
+  const contract = useContract({
+    addressOrName: 'your_contracts_address',
+    abi: your_contracts_abi,
+  })
+
+  // Reading from the contract
+  const readGreeting = async () => {
+    const greeting = await contract.greeting()
+    console.log(`Greeting: ${greeting}`)
+  }
+
+  // Writing to the contract
+  const setGreeting = async () => {
+    const tx = await contract.setGreeting('Hello world')
+    const response = await tx.wait()
+    console.log(`Transaction response: ${response}`)
+  }
+}
+```

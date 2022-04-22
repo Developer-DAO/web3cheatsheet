@@ -1,0 +1,25 @@
+# Switching networks
+
+We make use of the `useNetwork` hook from `wagmi` to switch networks.
+
+```tsx
+import { useNetwork } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }, switchNetwork] = useNetwork()
+  const currentChainId = data.chain?.id
+
+  // 1 => mainnet's chain ID. For other networks, see https://chainlist.org
+  const desiredNetworkChainId = 1
+
+  return (
+    <div>
+      {currentChainId !== desiredNetworkChainId && (
+        <button onClick={() => switchNetwork(desiredNetworkChainId)}>
+          Switch to mainnet
+        </button>
+      )}
+    </div>
+  )
+}
+```

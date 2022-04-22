@@ -3,5 +3,11 @@
   "project-setup": "Project setup",
   "wallet-connections": "Wallet connections",
   "ens": "ENS",
-  "read-contract": "Reading from a contract"
+  "interacting-with-contract": "Interacting with a contract",
+  "read-contract": "Reading from a contract",
+  "write-contract": "Writing to a contract",
+  "sign-message": "Signing a message",
+  "sign-in-with-ethereum": "Sign in with Ethereum",
+  "detect-wrong-network": "Detecting if the user is on the wrong network",
+  "switch-networks": "Switching networks"
 }
