@@ -10,12 +10,12 @@ const Page = () => {
   const currentChainId = data.chain?.id
 
   // 1 => mainnet's chain ID. For other networks, see https://chainlist.org
-  const desiredNetworkChainId = 1
+  const desiredChainId = 1
 
   return (
     <div>
       {currentChainId !== desiredNetworkChainId && (
-        <button onClick={() => switchNetwork(desiredNetworkChainId)}>
+        <button onClick={() => switchNetwork(desiredChainId)}>
           Switch to mainnet
         </button>
       )}
