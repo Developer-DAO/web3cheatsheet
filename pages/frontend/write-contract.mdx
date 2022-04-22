@@ -1,0 +1,46 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Writing to a smart contract
+
+<Callout>
+  Learn about ABIs first:
+  https://www.quicknode.com/guides/solidity/what-is-an-abi
+</Callout>
+
+We make use of the `useContractWrite` hook from `wagmi` to read from a smart contract.
+
+```tsx
+import { useContractWrite } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }, write] = useContractWrite(
+    {
+      addressOrName: 'your_contracts_address',
+      abi: your_contracts_abi,
+    },
+    'the_contract_method_name'
+  )
+}
+```
+
+For example, if you want to set the `greeting` i.e. call `setGreeting` for a `Greeter` contract:
+
+```tsx
+import { useContractWrite } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }, write] = useContractWrite(
+    {
+      addressOrName: 'greeter_address',
+      abi: Greeter_ABI,
+    },
+    'setGreeting'
+  )
+
+  return (
+    <>
+      <button onClick={() => write('Hello, world!')}>Set greeting</button>
+    </>
+  )
+}
+```

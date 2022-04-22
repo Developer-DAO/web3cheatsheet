@@ -1,0 +1,16 @@
+# Detecting if the user is on the wrong network
+
+You can easily detect if the user is on the wrong network using the `useNetwork` hook from `wagmi`.
+
+```tsx
+import { useNetwork } from 'wagmi'
+
+const Page = () => {
+  const [{ data, error, loading }] = useNetwork()
+
+  // checks if the user is not on mainnet. 1 => mainnet's chain ID. See https://chainlist.org/ for other chains
+  const wrongNetwork = data.chain?.id !== 1
+
+  return <div>{wrongNetwork && <p>You are on the wrong network!</p>}</div>
+}
+```

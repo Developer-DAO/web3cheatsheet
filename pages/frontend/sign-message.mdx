@@ -1,0 +1,18 @@
+# Signing a message
+
+We make use of the `useSignMessage` hook from `wagmi` to sign messages.
+
+```tsx
+import { useSignMessage } from 'wagmi'
+
+const Page = () => {
+  const [_, signMessage] = useSignMessage()
+
+  const onClick = async () => {
+    const { data, error } = signMessage({ message: 'gm' })
+    console.log(`Signed message: ${data}`)
+  }
+
+  return <button onClick={onClick}>Sign Message</button>
+}
+```
