@@ -27,11 +27,11 @@ export default {
         content="A set of useful code snippets and mini-guides to help you build web3."
       />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content="https://nextra.vercel.app/og.png" />
+      <meta name="twitter:image" content="https://web3cheatsheet.xyz/og.png" />
       <meta name="twitter:site:domain" content="web3cheatsheet.xyz" />
       <meta name="twitter:url" content="https://web3cheatsheet.xyz" />
       <meta name="og:title" content="🚀 web3cheatsheet.xyz" />
-      <meta name="og:image" content="https://nextra.vercel.app/og.png" />
+      <meta name="og:image" content="https://web3cheatsheet.xyz/og.png" />
       <meta name="apple-mobile-web-app-title" content="web3cheatsheet.xyz" />
       <link
         rel="apple-touch-icon"
