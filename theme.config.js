@@ -1,14 +1,16 @@
 export default {
-  github: 'https://github.com/dhaiwat10/web3cheatsheet',
-  docsRepositoryBase: 'https://github.com/dhaiwat10/web3cheatsheet/blob/master',
+  github: 'https://github.com/developer-dao/web3cheatsheet',
+  docsRepositoryBase:
+    'https://github.com/developer-dao/web3cheatsheet/blob/master',
   titleSuffix: ' – web3 cheatsheet',
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">
-        🚀 web3cheatsheet.xyz
+        🚀 web3cheatsheet.xyz by
       </span>
-      {/* <span className="text-gray-600 font-normal hidden md:inline">
-        The Next.js Static Site Generator
+      <img src="/d_d.svg" style={{ height: '48px' }} />
+      {/* <span className="ml-2 text-gray-600 font-normal hidden md:inline">
+        Code snippets and mini-guides to help you build web3
       </span> */}
     </>
   ),
@@ -70,6 +72,6 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
-  footerText: <>MIT {new Date().getFullYear()} © Dhaiwat Pandya</>,
+  footerText: <>MIT {new Date().getFullYear()} © Developer DAO</>,
   unstable_faviconGlyph: '🚀',
 }

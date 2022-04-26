@@ -8,7 +8,7 @@
     "start": "next start",
     "build": "next build"
   },
-  "author": "Shu Ding",
+  "author": "Developer DAO",
   "license": "MIT",
   "dependencies": {
     "next": "^12.1.0",
