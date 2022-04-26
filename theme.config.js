@@ -1,7 +1,7 @@
 export default {
   github: 'https://github.com/developer-dao/web3cheatsheet',
   docsRepositoryBase:
-    'https://github.com/developer-dao/web3cheatsheet/blob/master',
+    'https://github.com/developer-dao/web3cheatsheet/blob/main',
   titleSuffix: ' – web3 cheatsheet',
   logo: (
     <>
