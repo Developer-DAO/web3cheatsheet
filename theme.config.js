@@ -68,6 +68,11 @@ export default {
     </>
   ),
   search: true,
+  unstable_flexsearch: true,
+  unstable_staticImage: true,
+  floatTOC: true,
+  projectChatLink: 'https://discord.gg/devdao',
+  feedbackLink: 'Question? Give us feedback →',
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()} © Developer DAO</>,
   unstable_faviconGlyph: '🚀',
