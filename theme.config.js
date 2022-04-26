@@ -68,9 +68,6 @@ export default {
     </>
   ),
   search: true,
-  prevLinks: true,
-  nextLinks: true,
-  footer: true,
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()} © Developer DAO</>,
   unstable_faviconGlyph: '🚀',
