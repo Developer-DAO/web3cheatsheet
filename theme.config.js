@@ -1,14 +1,14 @@
 export default {
   github: 'https://github.com/developer-dao/web3cheatsheet',
   docsRepositoryBase:
-    'https://github.com/developer-dao/web3cheatsheet/blob/master',
+    'https://github.com/developer-dao/web3cheatsheet/blob/main',
   titleSuffix: ' – web3 cheatsheet',
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">
-        🚀 web3cheatsheet.xyz by
+      <span className="mr-2 font-extrabold hidden md:inline w-full">
+        web3cheatsheet.xyz by D_D
       </span>
-      <img src="/d_d.svg" style={{ height: '48px' }} />
+      {/* <img src="/d_d.svg" style={{ height: '32px' }} /> */}
       {/* <span className="ml-2 text-gray-600 font-normal hidden md:inline">
         Code snippets and mini-guides to help you build web3
       </span> */}
@@ -68,9 +68,11 @@ export default {
     </>
   ),
   search: true,
-  prevLinks: true,
-  nextLinks: true,
-  footer: true,
+  unstable_flexsearch: true,
+  unstable_staticImage: true,
+  floatTOC: true,
+  projectChatLink: 'https://discord.gg/devdao',
+  feedbackLink: 'Question? Give us feedback →',
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()} © Developer DAO</>,
   unstable_faviconGlyph: '🚀',
