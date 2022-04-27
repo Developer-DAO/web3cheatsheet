@@ -5,10 +5,10 @@ export default {
   titleSuffix: ' – web3 cheatsheet',
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">
-        🚀 web3cheatsheet.xyz by
+      <span className="mr-2 font-extrabold hidden md:inline w-full">
+        web3cheatsheet.xyz by D_D
       </span>
-      <img src="/d_d.svg" style={{ height: '48px' }} />
+      {/* <img src="/d_d.svg" style={{ height: '32px' }} /> */}
       {/* <span className="ml-2 text-gray-600 font-normal hidden md:inline">
         Code snippets and mini-guides to help you build web3
       </span> */}
