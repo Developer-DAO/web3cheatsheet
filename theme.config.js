@@ -35,36 +35,16 @@ export default {
       <meta name="og:title" content="🚀 web3cheatsheet.xyz" />
       <meta name="og:image" content="https://web3cheatsheet.xyz/og.png" />
       <meta name="apple-mobile-web-app-title" content="web3cheatsheet.xyz" />
-      <link
+      {/* <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/apple-icon-180x180.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="192x192"
-        href="/android-icon-192x192.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/public/d_d-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="96x96"
-        href="/public/d_d-96x96.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/public/d_d-16x16.png"
-      />
-      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+      /> */}
+      <link rel="icon" type="image/png" sizes="192x192" href="/d_d-32x32.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/d_d-32x32.png" />
+      <link rel="icon" type="image/png" sizes="96x96" href="/d_d-96x96.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/d_d-16x16.png" />
+      {/* <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" /> */}
     </>
   ),
   search: true,
@@ -75,5 +55,5 @@ export default {
   feedbackLink: 'Question? Give us feedback →',
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()} © Developer DAO</>,
-  unstable_faviconGlyph: '🚀',
+  // unstable_faviconGlyph: '🚀',
 }
