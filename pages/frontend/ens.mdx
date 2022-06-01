@@ -6,40 +6,15 @@ import Callout from 'nextra-theme-docs/callout'
   To learn more about ENS: https://www.youtube.com/watch?v=jssRnV5Ob6A
 </Callout>
 
-<Callout>
-  The content on this site is based off of version `0.2.28` of `wagmi`. The
-  `0.3.0` version release brought in tons of breaking API changes. The content
-  on this site has not been updated to be compatible with it yet.
-</Callout>
-
-### Resolving the connected wallet's ENS name
-
-To show the user's connected wallet's ENS name in your app, we make use of the `useAccount` hook from `wagmi`.
-
-```tsx
-import { useAccount } from 'wagmi'
-
-const Page = () => {
-  const [{ data: accountData }] = useAccount({ fetchEns: true })
-
-  return (
-    <div>
-      Your ENS name is:
-      {accountData?.ens.name}
-    </div>
-  )
-}
-```
-
 ### Resolving any valid Ethereum address's ENS name
 
-For this, we make use of the `useEnsLookup` hook from `wagmi`.
+For this, we make use of the `useEnsName` hook from `wagmi`.
 
 ```tsx
-import { useEnsLookup } from 'wagmi'
+import { useEnsName } from 'wagmi'
 
 const Page = () => {
-  const [{ data: ens }] = useEnsLookup({
+  const { data: ens } = useEnsName({
     address: '0xD933A3Ec19065dfAEc5CCaA4bfD6cd1dd370D9F3',
   })
 
