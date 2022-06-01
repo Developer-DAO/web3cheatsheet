@@ -7,19 +7,13 @@ import Callout from 'nextra-theme-docs/callout'
   https://www.quicknode.com/guides/solidity/what-is-an-abi
 </Callout>
 
-<Callout>
-  The content on this site is based off of version `0.2.28` of `wagmi`. The
-  `0.3.0` version release brought in tons of breaking API changes. The content
-  on this site has not been updated to be compatible with it yet.
-</Callout>
-
 We make use of the `useContractRead` hook from `wagmi` to read from a smart contract.
 
 ```tsx
 import { useContractRead } from 'wagmi'
 
 const Page = () => {
-  const [{ data, error, loading }, read] = useContractRead(
+  const { data, isError, isLoading } = useContractRead(
     {
       addressOrName: 'your_contracts_address',
       abi: your_contracts_abi,
@@ -35,7 +29,7 @@ For example, if you want to read the `greeting` from a `Greeter` contract:
 import { useContractRead } from 'wagmi'
 
 const Page = () => {
-  const [{ data, error, loading }, read] = useContractRead(
+  const { data, isError, isLoading } = useContractRead(
     {
       addressOrName: 'greeter_address',
       abi: Greeter_ABI,
@@ -49,13 +43,13 @@ const Page = () => {
 
 ---
 
-If you want to programatically read instead of reading on page load, you can use the `read` function directly:
+If you want to programatically read instead of reading on page load, you can use the `refetch` function directly:
 
 ```tsx
 import { useContractRead } from 'wagmi'
 
 const Page = () => {
-  const [_, read] = useContractRead(
+  const { refetch } = useContractRead(
     {
       addressOrName: 'greeter_address',
       abi: Greeter_ABI,
@@ -64,8 +58,8 @@ const Page = () => {
   )
 
   const handleClick = async () => {
-    const { data } = read()
-    console.log(`Greeting: ${data}`)
+    const res = refetch()
+    console.log(`Greeting: ${res}`)
   }
 
   return <button onClick={handleClick}>Read greeting</button>
