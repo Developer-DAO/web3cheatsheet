@@ -13,13 +13,11 @@ We make use of the `useContractWrite` hook from `wagmi` to read from a smart con
 import { useContractWrite } from 'wagmi'
 
 const Page = () => {
-  const { data, error, loading, write } = useContractWrite(
-    {
+  const { data, error, loading, write } = useContractWrite({
       addressOrName: 'your_contracts_address',
       abi: your_contracts_abi,
-    },
-    'the_contract_method_name'
-  )
+      functionName: 'the_contract_method_name'
+   })
 }
 ```
 
@@ -29,13 +27,11 @@ For example, if you want to set the `greeting` i.e. call `setGreeting` for a `Gr
 import { useContractWrite } from 'wagmi'
 
 const Page = () => {
-  const { data, error, loading, write } = useContractWrite(
-    {
+  const { data, error, loading, write } = useContractWrite({
       addressOrName: 'greeter_address',
       abi: Greeter_ABI,
-    },
-    'setGreeting'
-  )
+      functionName: 'setGreeting'
+    })
 
   return (
     <>
